@@ -28,6 +28,10 @@
     dotnet tool uninstall  -g dotnetsay
     ```
 
+    > You can find .NET Core Global Tools on NuGet. However, NuGet doesn't yet allow you to search specifically for .NET Core Global Tools.
+    >
+    > You can find a list of tool in the [natemcmaster/dotnet-tools](https://github.com/natemcmaster/dotnet-tools) GitHub repository.
+
 ## Exercise 2 - Create your own Global Tool
 
 ### Steps
