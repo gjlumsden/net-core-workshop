@@ -90,7 +90,7 @@ In this lab you will:
 
 7. Step-over the line. Note that the value has been loaded from *secrets.json*.
 
-## Exercise 3 - Securing A Web API with Azure AD
+## Exercise 3 - Securing a Web API with Azure AD
 
 1. Take a look at the sample for [Calling a web API in an ASP.NET Core web application using Azure AD](https://azure.microsoft.com/en-gb/resources/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/).
 
