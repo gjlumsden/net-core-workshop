@@ -66,7 +66,31 @@ In this lab you will:
 
 9. Run the application again and note that you’ve now overridden the styling for the login page.
 
-## Exercise 2 - Securing A Web API with Azure AD
+## Exercise 2 - ASP.NET Core User Secrets
+
+1. In create a new ASP.NET Core web application.
+
+2. Right click the project and select **Manage User Secrets**.
+
+3. In the *secrets.json* file add some valid JSON, for example:
+
+    ```json
+    { "ThisIsASecret": "Don’t tell anyone" }
+    ```
+
+4. Save the file.
+
+5. Open *Startup.cs*. In the ```ConfigureServices``` method add the line:
+
+    ```c#
+    var secret = Configuration["ThisIsASecret"];
+    ```
+
+6. Place a breakpoint on the line and run the application.
+
+7. Step-over the line. Note that the value has been loaded from *secrets.json*.
+
+## Exercise 3 - Securing A Web API with Azure AD
 
 1. Take a look at the sample for [Calling a web API in an ASP.NET Core web application using Azure AD](https://azure.microsoft.com/en-gb/resources/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/).
 
