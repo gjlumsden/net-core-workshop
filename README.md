@@ -14,3 +14,6 @@ An introduction to development apps with .NET Core.
 ### ASP.NET Core Fundamentals
 
 1. [Get started with ASP.NET Core](./labs/02-asp-net-core-fundamentals/01-get-started-with-asp-net-core.md)
+2. [Dependency injection](./labs/02-asp-net-core-fundamentals/02-dependency-injection.md)
+3. [Middleware](./labs/02-asp-net-core-fundamentals/03-middleware.md)
+4. [Security](./labs/02-asp-net-core-fundamentals/04-security.md)
