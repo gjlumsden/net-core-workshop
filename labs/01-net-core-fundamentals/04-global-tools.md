@@ -40,8 +40,8 @@
 
     ```bash
     cd C:\Dev\dotnet-workshop\
-    dotnet new console --name SayHello
-    cd .\SayHello\
+    dotnet new console --name MyCustomTool.SayHello
+    cd .\MyCustomTool.SayHello\
     ```
 
 2. Open the project in Visual Studio or VS Code. Open the project file (*\*.csproj*).
@@ -63,7 +63,7 @@
 5. Install the Global Tool:
 
     ```bash
-    dotnet tool install -g Sayhello --add-source .\bin\debug
+    dotnet tool install -g MyCustomTool.SayHello --add-source .\bin\debug
     ```
 
     > **Note:** Typically you would install Global Tools from NuGet. In this instance, you're using ```--add-source``` to install from a local source.
@@ -72,7 +72,7 @@
 
 7. Now test your application by running ```dotnet say-hello```. It should write "Hello World!" to your console.
 
-8. Uninstall your application by running ```dotnet tool uninstall -g SayHello```
+8. Uninstall your application by running ```dotnet tool uninstall -g MyCustomTool.SayHello```
 
 ___
 #### Conditions and Terms of Use
