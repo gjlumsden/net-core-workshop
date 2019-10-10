@@ -13,7 +13,11 @@ https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc)
 
 [Microsoft Docs - Get started with Razor Pages in ASP.NET Core  ](https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start)
 
-## Exercise 4 - ASP.NET Core Fundamentals
+## Exercise 4 - Get started with ASP.NET Core SignalR
+
+[Microsoft Docs - Get started with ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/tutorials/signalr)
+
+## Exercise 5 - ASP.NET Core Fundamentals
 
 ### Steps
 

@@ -9,9 +9,6 @@ This workshop provides a great opportunity to understand how .NET Core compares 
 
 1. [Get started with .NET Core](./labs/01-net-core-fundamentals/01-get-started-with-net-core.md)
 2. [Using .NET Standard](./labs/01-net-core-fundamentals/02-using-net-standard.md)
-3. [Cross-platform .NET](./labs/01-net-core-fundamentals/03-cross-platform-net.md)
-4. [Global Tools](./labs/01-net-core-fundamentals/04-global-tools.md)
-5. [Distributing .NET Core](./labs/01-net-core-fundamentals/05-distributing-net-core.md)
 
 ### ASP.NET Core Fundamentals
 
@@ -22,12 +19,14 @@ This workshop provides a great opportunity to understand how .NET Core compares 
 
 ### New in .NET Core
 
-1. ...
+1. [Global Tools](./labs/03-new-in-net-core/01-global-tools.md)
+2. [Desktop Applications](./labs/03-new-in-net-core/02-desktop-applications.md)
 
 ### Distributing .NET Core cross-platform
 
-1. ...
+1. [Cross-platform .NET](./labs/04-distributing-net-core-cross-platform/01-cross-platform-net.md)
+2. [Distributing .NET Core](./labs/04-distributing-net-core-cross-platform/02-distributing-net-core.md)
 
 ### Porting from .NET Framework
 
-1. ...
+1. [Porting from .NET Framework](./labs/05-porting-from-net-framework/01-porting-from-net-framework.md)
