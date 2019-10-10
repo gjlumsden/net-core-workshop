@@ -17,3 +17,15 @@ An introduction to development apps with .NET Core.
 2. [Dependency injection](./labs/02-asp-net-core-fundamentals/02-dependency-injection.md)
 3. [Middleware](./labs/02-asp-net-core-fundamentals/03-middleware.md)
 4. [Security](./labs/02-asp-net-core-fundamentals/04-security.md)
+
+### New in .NET Core
+
+1. ...
+
+### Distributing .NET Core cross-platform
+
+1. ...
+
+### Porting from .NET Framework
+
+1. ...
