@@ -40,6 +40,6 @@ https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-mode
     2. [ASP.NET Core Web Host](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host)
     3. [Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
 
-    > **Note:** We'll explore *Dependency Injection* and *Middleware* in the next two lab guides.
+        > **Note:** We'll explore *Dependency Injection* and *Middleware* in the next two lab guides.
 
     > You can use [liammoat/aspnet-fundamentals](https://github.com/liammoat/aspnet-fundamentals) for reference if you wish.
