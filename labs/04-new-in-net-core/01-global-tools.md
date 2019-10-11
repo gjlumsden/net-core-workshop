@@ -10,7 +10,7 @@
     dotnet tool install -g dotnetsay
     ```
 
-    > **Note:** THe default location in Windows is "~\\.dotnet\tools"
+    > **Note:** The default location in Windows is "~\\.dotnet\tools"
 
 2. Check that the tool has installed by running ```dotnet tool list -g```.
 
@@ -30,7 +30,7 @@
 
     > You can find .NET Core Global Tools on NuGet. However, NuGet doesn't yet allow you to search specifically for .NET Core Global Tools.
     >
-    > You can find a list of tool in the [natemcmaster/dotnet-tools](https://github.com/natemcmaster/dotnet-tools) GitHub repository.
+    > You can find a list of tools in the [natemcmaster/dotnet-tools](https://github.com/natemcmaster/dotnet-tools) GitHub repository.
 
 ## Exercise 2 - Create your own Global Tool
 
