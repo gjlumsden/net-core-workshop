@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace WorkerService
+namespace MyWorkerService
 {
     public class Program
     {
@@ -16,8 +16,8 @@ namespace WorkerService
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseWindowsService()
-                .ConfigureServices(services =>
+            .UseWindowsService()
+                .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();
                 });
