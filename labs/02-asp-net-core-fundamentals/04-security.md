@@ -1,6 +1,6 @@
 # Lab Guide - Security
 
-## Exercise 1 - ASP.NET Core User Secrets
+## Exercise 1 - User Secrets
 
 1. In Visual Studio create a new ASP.NET Core web application.
 

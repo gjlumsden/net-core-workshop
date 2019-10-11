@@ -1,8 +1,8 @@
 # Lab Guide - Dependency injection 
 
-## Exercise 1 - ASP.NET Core Built-in Dependency Injection
+## Exercise 1 - Dependency Injection with .NET Core
 In this lab you will:
-* Configure service mapping with different lifetimes using the ASP.NET Core framework built-in features
+* Configure service mapping with different lifetimes using .NET Core built-in features
 * Inject service dependencies in a Web API controller
 
 ### Steps
