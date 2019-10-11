@@ -5,13 +5,15 @@
 1. [Microsoft Docs - Get started with ASP.NET Core MVC](
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc)
 
-2. [Microsoft Docs - Add a controller to an ASP.NET Core MVC app](
+### Optional
+
+1. [Microsoft Docs - Add a controller to an ASP.NET Core MVC app](
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-controller)
 
-3. [Microsoft Docs - Add a view to an ASP.NET Core MVC app](
+2. [Microsoft Docs - Add a view to an ASP.NET Core MVC app](
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-view)
 
-4. [Microsoft Docs - Add a model to an ASP.NET Core MVC app](
+3. [Microsoft Docs - Add a model to an ASP.NET Core MVC app](
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model)
 
 ## Exercise 2 - Create a web API with ASP.NET Core
