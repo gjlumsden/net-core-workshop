@@ -26,6 +26,9 @@ This workshop provides a great opportunity to understand how .NET Core compares 
 
 1. [Global Tools](./labs/04-new-in-net-core/01-global-tools.md)
 2. [Desktop Applications](./labs/04-new-in-net-core/02-desktop-applications.md)
+3. [Worker Services](./labs/04-new-in-net-core/03-worker-services.md)
+4. [RPC Applications](./labs/04-new-in-net-core/04-rpc-applications.md)
+
 
 ### **05 -** Porting from .NET Framework
 
