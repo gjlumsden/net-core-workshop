@@ -2,16 +2,25 @@
 
 ## Exercise 1 - Get started with ASP.NET Core MVC
 
-[Microsoft Docs - Get started with ASP.NET Core MVC](
+1. [Microsoft Docs - Get started with ASP.NET Core MVC](
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc)
 
-## Exercise 2 - Create a web API with ASP.NET Core MVC
+2. [Microsoft Docs - Add a controller to an ASP.NET Core MVC app](
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-controller)
 
-[Microsoft Docs - Create a web API with ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api)
+3. [Microsoft Docs - Add a view to an ASP.NET Core MVC app](
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-view)
+
+4. [Microsoft Docs - Add a model to an ASP.NET Core MVC app](
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model)
+
+## Exercise 2 - Create a web API with ASP.NET Core
+
+[Microsoft Docs - Create a web API with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api)
 
 ## Exercise 3 - Get started with Razor Pages in ASP.NET Core
 
-[Microsoft Docs - Get started with Razor Pages in ASP.NET Core  ](https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start)
+[Microsoft Docs - Get started with Razor Pages in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start)
 
 ## Exercise 4 - Get started with ASP.NET Core SignalR
 
