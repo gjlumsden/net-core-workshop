@@ -9,14 +9,26 @@ In this exercise, you will:
 
 1. Create a new ASP.NET Core application called *Middleware*, choose the **empty template**.
 
-2. Run the application and it should show “Hello World!” text in the browser.
+3. Open "Startup.cs" and update the ```Configure``` method as below:
 
-3. In the configure method, add a second ```app.Run``` statement and write out the statement:
-"Hello Again World!"
+    ```c#
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.Run(async context =>
+        {
+            await context.Response.WriteAsync("Hello World!");
+        });
+    }
+    ```
 
-4. Run the application. Note that only “Hello World!” is displayed.
+3. Run the application and it should show “Hello World!” in the browser.
 
-    > **Note:** The request delegate written in the first middleware, uses ```app.Run()``` and will terminate the pipeline, regardless of other calls to ```app.Run()``` that you may include. Therefore, only the first delegate (“Hello, World!”) will be run and displayed.
+4.  In the configure method, add a second ```app.Run``` statement and write out the statement:
+"Hello World, once again!"
+
+5. Run the application. Note that only “Hello World!” is displayed.
+
+    > **Note:** The request delegate written in the first middleware, uses ```app.Run()``` and will terminate the pipeline, regardless of other calls to ```app.Run()``` that you may include. Therefore, only the first delegate (“Hello World!”) will be run and displayed.
     >
     > You must chain multiple request delegates together. Using ```app.Use()```, with a next parameter that represents the next delegate in the pipeline. Note that just because you are calling ```next``` does not mean you cannot perform actions both before and after the next delegate.
 
@@ -28,7 +40,25 @@ In this exercise, you will:
     await next.Invoke();
     ```
 
-7. Run the application now. It should show both text lines in the browser.
+7. ```Configure``` should now look like this:
+
+    ```c#
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.Use(async (context, next) =>
+        {
+            await context.Response.WriteAsync("Hello, World!");
+            await next.Invoke();
+        });
+
+        app.Run(async context =>
+        {
+            await context.Response.WriteAsync("Hello, World. Once again!");
+        });
+    }
+    ```
+
+7. Run the application again. It should show both text lines in the browser.
 
 ### Use ```map```
 
@@ -55,12 +85,48 @@ In this exercise, you will:
 2. Update the ```Configure``` method as follows:
 
     ```c#
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
+        app.Map("/map1", HandleMapTest1);
+
+        app.Map("/map2", HandleMapTest2);
+
+        app.Run(async context =>
         {
-            app.UseDeveloperExceptionPage();
-        }
+            await context.Response.WriteAsync("Hello from non-Map delegate.");
+        });
+    }
+    ```
+
+3. Run the application. Make a request to the following paths and observe the responses. If you prefer, place a couple of breakpoints to help you understand the pipeline:
+
+    * "/"
+    * "/map1"
+    * "/map2"
+    * "/map3"
+
+### Use ```MapWhen```
+
+1. Add the follow static method to your ```Startup``` class:
+
+    ```c#
+    private static void HandleBranch(IApplicationBuilder app)
+    {
+        app.Run(async context =>
+        {
+            var branchVer = context.Request.Query["branch"];
+            await context.Response.WriteAsync($"Branch used = {branchVer}");
+        });
+    }
+    ```
+
+2. Update the ```Configure``` method as follows:
+
+    ```c#
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.MapWhen(context => context.Request.Query.ContainsKey("branch"),
+                            HandleBranch);
 
         app.Map("/map1", HandleMapTest1);
 
@@ -73,13 +139,11 @@ In this exercise, you will:
     }
     ```
 
-3. Run the application. Make a request to the following URLs and observe the responses:
+3. Run the application. Make a request to the following paths and observe the responses. If you prefer, place a couple of breakpoints to help you understand the pipeline:
 
     * "/"
     * "/map1"
-    * "/map2"
-    * "/map3"
-
+    * "/map1?branch=New"
 
 ### Use Static Files Middleware
 
@@ -99,9 +163,7 @@ In this exercise, you will:
 
     > For example, include some image, *\*.css* and *\*.js* files.
 
-5. Remove the Welcome Page middleware statement.
-
-6. Add the following line at the start of the ```Configure()``` method:
+5. Add the following line at the start of the ```Configure()``` method:
 
     ```c#
     app.UseStaticFiles();
@@ -132,7 +194,7 @@ In this exercise, you will:
 
 1. You can continue using the project you created in the previous exercise. 
 
-2. Create another ```Configure()``` method in the ```Startup``` class, and name it ```ConfigureDevelopment```. Place this at the end of the file.
+2. Create another ```Configure()``` method in the ```Startup``` class, and name it ```ConfigureDevelopment```.
 
     ```c#
     public void ConfigureDevelopment(IApplicationBuilder app)
@@ -141,22 +203,19 @@ In this exercise, you will:
 	}
     ```
 
-3. Add the following statement to ```ConfigureDevelopment()``` method:
+3. Add the following middleware to ```ConfigureDevelopment()``` method:
 
     ```c#
     app.UseStaticFiles();
-    ```
-
-4. We'll want a Welcome page in our Dev environment. Add the following statement to ```ConfigureDevelopment()``` method:
-
-    ```c#
     app.UseWelcomePage();
     ```
 
-5. Remove the welcome-page and static files middleware from the regular Configure() method.
+4. Remove the welcome-page and static files middleware from the ```Configure()``` method.
 
-6. Modify first middleware’s text to “Hello World, from Production!”.
+5. Modify ```Configure()```'s final middleware to return “Hello World, from Production!”.
 
-7. Go to **project properties** (right-click the project and select **properties**) and then go to the **Debug** tab. Set the *ASPNETCORE_ENVIRONMENT* variable value to "Development".
+6. Run the application and observe the results.
 
-8. Run the application, and note the change in application behaviour as you change environment.
+7. Go to **project properties** (right-click the project and select **properties**) and select the **Debug** tab. Set the *ASPNETCORE_ENVIRONMENT* variable value to "Production".
+
+7. Run the application again, and note the change in application behaviour as you change environment.
