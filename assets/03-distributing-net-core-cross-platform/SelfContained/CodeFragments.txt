@@ -1,5 +1,0 @@
-To be added to the project file:
-
-<PropertyGroup>
-    <RuntimeIdentifiers>win10-x64;osx.10.11-x64</RuntimeIdentifiers>
-</PropertyGroup>

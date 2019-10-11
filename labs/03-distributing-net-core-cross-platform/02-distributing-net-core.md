@@ -27,7 +27,7 @@ When you publish a self-contained deployment (SCD), the .NET Core SDK creates a 
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
         <RuntimeIdentifiers>win10-x64;osx.10.11-x64;ubuntu.16.10-x64</RuntimeIdentifiers>
     </PropertyGroup>
 
@@ -40,12 +40,18 @@ When you publish a self-contained deployment (SCD), the .NET Core SDK creates a 
     dotnet publish -c release -r win10-x64 --self-contained
     ```
 
-6. And now, for Ubuntu:
+6. Now let's run the executable we've just created. From the same directory, run:
+
+    ```bash
+    .\bin\release\netcoreapp3.0\win10-x64\SelfContainedApp.exe
+    ```
+
+7. Let's now publish the application for Ubuntu:
 
     ```bash
     dotnet publish -c release -r ubuntu.16.10-x64 --self-contained
     ```
 
-7. Explore the ```bin``` directory. Navigate to ".\bin\release\netcoreapp2.2". You'll find a directory for both Windows and Ubuntu. Each, with their respective executable as an self-contained deployment.
+8. Explore the ```bin``` directory. Navigate to ".\bin\release\netcoreapp3.0". You'll find a directory for both Windows and Ubuntu. Each, with their respective executable as an self-contained deployment.
 
-8. Each of these applications can be executed, on their respective platform, without needing the .NET runtime to be installed.
+    > **Note:** Because we opted to publish a self contained application each of these applications can be executed, on their respective platform, without needing the .NET runtime to be installed.
