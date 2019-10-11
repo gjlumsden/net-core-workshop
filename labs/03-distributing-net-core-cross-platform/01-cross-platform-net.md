@@ -16,7 +16,7 @@
 
     > **Note:** The ```TargetFramework``` is "netstandard2.0".
 
-3. Update the project file, to look like this:
+3. We want to update the project file to target "netstandard2.0", ".NET Framework 4.0" and ".NET Framework 4.5". Update the *\*csproj* to look like this:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -43,7 +43,7 @@
     * There is an ```<ItemGroup>``` node for the ```net40``` target pulling in one .NET Framework reference.
     * There is an ```<ItemGroup>``` node for the ```net45``` target pulling in two .NET Framework references.
 
-5. Using conditional compilation we can write code specifically for each target. For example:
+5. Using conditional compilation we can write code specifically for each target. As an example, update "Class1.cs" to look like this:
 
     ```c#
     using System;
@@ -112,9 +112,7 @@
     dotnet build
     ```
 
-6. Navigate to the ```bin``` directory. You'll find three directories, one for each framework: "netstandard2.0", "net40" and "net45". Each of these contain their own respective ```.dll``` files.
-
-### Steps
+6. Navigate to the "bin" directory. You'll find three directories, one for each framework: "netstandard2.0", "net40" and "net45". Each of these contain their own respective ```.dll``` files.
 
 ## Exercise 2 - Using Windows Compatibility Pack
 
@@ -180,4 +178,4 @@
     }
     ```
 
-6. Run the application. On Windows the console app will use the Registry value (if it exists). On any other platform, it will use the *LocalApplicationData* directory.
+6. Run the application. On Windows the application will use the Registry value (if it exists). On any other platform, it will use the *LocalApplicationData* directory.
