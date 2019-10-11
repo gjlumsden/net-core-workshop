@@ -2,12 +2,25 @@
 
 ## Exercise 1 - Port ASP.NET applications to ASP.NET Core
 
-https://docs.microsoft.com/en-us/dotnet/core/porting/
+> You may prefer to complete this exercise with a peer or in a group.
+
+### Steps
+
+1. Create a new ASP.NET Web Application using .NET Framework in Visual Studio.
+
+2. Following the steps of [this tutorial](https://docs.microsoft.com/en-us/aspnet/core/migration/proper-to-2x), see if you can port the application to ASP.NET Core 2.0. The tutorial covers the following steps:
+
+    * Prerequisites
+    * Target Frameworks
+    * Project structure differences
+    * Global.asax file replacement
+    * Storing Configurations
+    * Native Dependency Injection
+    * Serving Static Files
+    * Additional Resources
+
+    > **Note:** You might not have time to complete the port in the time allotted. The important part is to understand the overall steps involved, not to complete the port.
 
 ## Exercise 2 - Port desktop applications to .NET Core 3.0
 
-https://devblogs.microsoft.com/dotnet/how-to-port-desktop-applications-to-net-core-3-0/
-
-https://docs.microsoft.com/en-us/dotnet/desktop-wpf/migration/convert-project-from-net-framework
-
-https://docs.microsoft.com/en-us/dotnet/core/porting/winforms
+*Coming soon*
