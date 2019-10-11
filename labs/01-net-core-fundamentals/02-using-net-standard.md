@@ -29,7 +29,7 @@
     dotnet add DiscountCalculator.API reference .\DiscountCalculator.Core\
     ```
 
-3. Open the solution (.sln) file in Visual Studio. For each project, open it's project file. Note that they are targeting "netstandard2.0" and "netcoreapp2.2" respectively.
+3. Open the solution (.sln) file in Visual Studio. For each project, open it's project file. Note that they are targeting "netcoreapp3.0" and "netstandard2.0" respectively.
 
 4. Let's add some code. In *DiscountCalculator.Core* replace *Class1.cs** with "DiscountEngine.cs"
 
@@ -64,7 +64,7 @@
     }
     ```
 
-5. In *DiscountCalculator.API* replace *ValuesController.cs** with "DiscountsController.cs"
+5. In *DiscountCalculator.API* delete "WeatherForecast.cs" and replace *WeatherForecastController.cs** with "DiscountsController.cs"
 
     ```c#
     using System;
@@ -90,7 +90,7 @@
 
     > **Note:** In the next module, we'll explore how to improve this with *depenedency injection*.
 
-6. Run your web application from Visual Studio. Make a web request to "/api/discounts?dateJoined=2017-05-01" and the service will return the permitted discount.
+6. Run your web application from Visual Studio. Navigate to "https://localhost:5001/api/discounts?dateJoined=2017-05-01" and the service will return the calculated discount.
 
 ## Exercise 2 - Reference .NET Standard from .NET Framework
 
@@ -137,11 +137,11 @@
     }
     ```
 
-4. Run your console application from Visual Studio.
+4. Run the newly created console application from Visual Studio.
 
-5. You now have a .NET Standard library, that is being referenced by a ASP.NET Core Web API project and a .NET Framework Console app. "DiscountCalculator.Core" can be used anywhere that implements "netstandard2.0":
+5. You now have a .NET Standard library, that is being referenced by a **ASP.NET Core** Web API project and a **.NET Framework** Console app. "DiscountCalculator.Core" can be used anywhere that implements "netstandard2.0":
 
-    * .NET Core 2.0
+    * .NET Core 2.0+
     * .NET Framework 4.6.1
     * Mono 5.4
     * Xamarin.iOS 10.14

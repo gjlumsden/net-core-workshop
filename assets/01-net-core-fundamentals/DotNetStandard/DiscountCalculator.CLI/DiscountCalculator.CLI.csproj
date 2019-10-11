@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{460BD1AD-2A94-4C37-A2E3-FBCBDCBCDC51}</ProjectGuid>
+    <ProjectGuid>{80E2F009-5201-40D6-9225-465E18BAE023}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>DiscountCalculator.CLI</RootNamespace>
     <AssemblyName>DiscountCalculator.CLI</AssemblyName>
@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DiscountCalculator.Core\DiscountCalculator.Core.csproj">
-      <Project>{a6429b9c-9435-42e3-9caf-f95077fedfd8}</Project>
+      <Project>{d40936e2-fd33-4e08-ab76-49643730de3e}</Project>
       <Name>DiscountCalculator.Core</Name>
     </ProjectReference>
   </ItemGroup>
