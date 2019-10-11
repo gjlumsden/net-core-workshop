@@ -2,7 +2,7 @@
 
 ## Exercise 1 - ASP.NET Core User Secrets
 
-1. In Visual Stusio create a new ASP.NET Core web application.
+1. In Visual Studio create a new ASP.NET Core web application.
 
 2. Right click the project and select **Manage User Secrets**.
 
