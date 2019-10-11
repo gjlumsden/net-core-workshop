@@ -6,9 +6,7 @@
 
 1. Go to https://dotnet.microsoft.com/download
 
-2. Download the latest .NET Core SDK (currently version 2.2) and run the installer.
-
-    > **Please note:** There is a seperate download link to use if you're running Visual Studio 2017.
+2. Download the latest .NET Core SDK and run the installer.
 
 3. Verify the installation was successful by running the following command in your console:
 
@@ -20,7 +18,7 @@
 
 ### Steps
 
-1. Open your preferred console. Create a director for the workshop:
+1. Open your preferred console. Create a directory for the workshop:
 
     ```bash
     cd C:\Dev\
@@ -95,13 +93,15 @@
     dotnet build
     ```
 
+    > **Note:** Starting with .NET Core 2.0 SDK, ```dotnet restore``` runs implicitly when you run ```dotnet build```.
+
 6. Run the program passing a parameter to the app:
 
     ```bash
     dotnet run -- John
     ```
 
-    > **Note:** Arguements after the "--" are passed to the application itself. 
+    > **Note:** Any arguements after the "--" are passed to the application itself. 
 
 7. Add a new file inside the project directory named *FibonacciGenerator.cs* with the following code:
 
@@ -182,7 +182,7 @@ You have already create a project using ```dotnet new```. A console application 
     * It's short name, e.g. ```mvc```
     * The available languages, e.g. [C#] and F#
 
-4. Each template has further options. For example, run ```dotnet new mvc --help``` to see options like ```--auth```, ```--no-https``` and ```--no-restore```.
+4. Each template has further options. For example, run ```dotnet new mvc --help``` and you will see this template has options like ```--auth```, ```--no-https``` and ```--no-restore```.
 
 5. Let's try creating an ASP.NET MVC project. Run the following command:
 
@@ -192,11 +192,13 @@ You have already create a project using ```dotnet new```. A console application 
 
 6. Open your project in Visual Studio or VS Code. You will see the project has been scaffolded from the MVC template.
 
-7. Just like our console application, we can run our web application using ```dotnet run```:
+7. Return to your console. Just like the console application, we can run the web application using ```dotnet run```:
 
     ```bash
     dotnet run --project MyFirstWebApp
     ```
+
+    > **Note:** This command uses the ```--project``` option to provide the path to the project file to run. By default, ```dotnet``` would use the current directory if there is only one project.
 
 8. Open your web browser and navigate to "http://localhost:5000/". 
 
