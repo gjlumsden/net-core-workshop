@@ -37,9 +37,9 @@
 
 2. Open **Visual Studio Installer**. Modify you Visual Studo 2019 install.
 
-3. Check to see if "??" is selected. If it isn't, select it and click **Apply**. Wait a moment or two while Visual Studio updates.
+3. Check to see if "Universal Windows Platform development" is selected. If it isn't, select it and click **Apply**. Wait a moment or two while Visual Studio updates.
 
-4. Now that "???" is installed, open the Visual Studio solution ("MyDesktopApp.sln") that you created in the previous exercise.
+4. Now that "Universal Windows Platform development" is installed, open the Visual Studio solution ("MyDesktopApp.sln") that you created in the previous exercise.
 
 5. Add a **Windows Application Packaging Project** project to your solution. Name it "MyDesktopApp.Package".
 
