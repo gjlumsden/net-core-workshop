@@ -145,6 +145,116 @@ In this exercise, you will:
     * "/map1"
     * "/map1?branch=New"
 
+### Middleware Class
+
+Middleware is generally encapsulated in a class and exposed with an extension method.
+
+1. Consider the following middleware, which sets the culture for the current request from a query string:
+
+    ```c#
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app)
+        {
+            app.Use(async (context, next) =>
+            {
+                var cultureQuery = context.Request.Query["culture"];
+                if (!string.IsNullOrWhiteSpace(cultureQuery))
+                {
+                    var culture = new CultureInfo(cultureQuery);
+
+                    CultureInfo.CurrentCulture = culture;
+                    CultureInfo.CurrentUICulture = culture;
+                }
+
+                // Call the next delegate/middleware in the pipeline
+                await next();
+            });
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync(
+                    $"Hello {CultureInfo.CurrentCulture.DisplayName}");
+            });
+
+        }
+    }
+    ```
+
+1. Create a new *class* called "RequestCultureMiddleware". This class must include:
+
+    * A public constructor with a parameter of type ```RequestDelegate```.
+    * A public method named "Invoke" or "InvokeAsync". This method must:
+        * Return a ```Task```.
+        * Accept a first parameter of type ```HttpContext```.
+
+2. The above middleware would be implemented as such:
+
+    ```c#
+    public class RequestCultureMiddleware
+    {
+        private readonly RequestDelegate _next;
+
+        public RequestCultureMiddleware(RequestDelegate next)
+        {
+            _next = next;
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            var cultureQuery = context.Request.Query["culture"];
+            if (!string.IsNullOrWhiteSpace(cultureQuery))
+            {
+                var culture = new CultureInfo(cultureQuery);
+
+                CultureInfo.CurrentCulture = culture;
+                CultureInfo.CurrentUICulture = culture;
+
+            }
+
+            // Call the next delegate/middleware in the pipeline
+            await _next(context);
+        }
+    }
+    ```
+
+3. To configure this middleware, we'll create a middleware extension method. Create a new static class called "RequestCultureMiddlewareExtensions":
+
+    ```c#
+    public static class RequestCultureMiddlewareExtensions
+    {
+        public static IApplicationBuilder UseRequestCulture(
+            this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<RequestCultureMiddleware>();
+        }
+    }
+    ```
+
+4. In "Startup.cs" update the ```Configure``` method with the following:
+
+    ```c#
+    app.UseRequestCulture();
+    ```
+
+5. The original middleware example should now look like this:
+
+    ```c#
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseRequestCulture();
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync(
+                    $"Hello {CultureInfo.CurrentCulture.DisplayName}");
+            });
+        }
+    }
+    ```
+
 ### Use Static Files Middleware
 
 1. Add the following line at the start of the ```Configure()``` method:
@@ -219,3 +329,6 @@ In this exercise, you will:
 7. Go to **project properties** (right-click the project and select **properties**) and select the **Debug** tab. Set the *ASPNETCORE_ENVIRONMENT* variable value to "Production".
 
 7. Run the application again, and note the change in application behaviour as you change environment.
+
+---
+TODO: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-3.0
