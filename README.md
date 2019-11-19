@@ -1,7 +1,7 @@
 # .NET Core Workshop
-An introduction to development apps with .NET Core.
+An introduction to development apps with .NET Core 3.0.
 
-This workshop provides a great opportunity to understand how .NET Core compares to .NET Standard and .NET Framework. You’ll find out about its cross platform support both from a development tooling and deployment perspective, and using ASP.NET Core for building Web APIs. We’ll also dig into the options for porting existing .NET Framework code.
+This workshop provides a great opportunity to understand how .NET Core compares to .NET Standard and .NET Framework as well as understanding some of the new features in .NET Core 3.0. You’ll find out about its cross platform support both from a development tooling and deployment perspective, and using ASP.NET Core for building Web APIs. We’ll also dig into the options for porting existing .NET Framework code.
 
 ## Lab Guides
 
