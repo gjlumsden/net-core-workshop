@@ -73,3 +73,42 @@
 7. Now test your application by running ```dotnet say-hello```. It should write "Hello World!" to your console.
 
 8. Uninstall your application by running ```dotnet tool uninstall -g MyCustomTool.SayHello```
+
+## Exercise 3 - Install a Local Tool
+
+### Steps
+
+1. Open your console, navigate to the workshop directory and configure a folder for local tools:
+    
+    ```bash
+    cd C:\Dev\dotnet-workshop
+    mkdir LocalTools
+    cd .\LocalTools
+    dotnet new tool-manifest
+    ```
+
+2. Open your console. Install ```dotnetsay``` in as a local tool
+
+    ```bash
+    dotnet tool install dotnetsay
+    ```
+
+3. Check that the tool has installed by running ```dotnet tool list```.
+
+4. You can invoke the tool using the following command: ```dotnet dotnetsay```
+
+5. Change to another directory and try running the tool command again:
+
+    ```bash
+    cd ..\
+    dotnet dotnetsay
+    ```
+> This will result in an error because the local tool is not available in this location.
+
+6. Finally, you can uninstall ```dotnetsay```:
+
+    ```bash
+    cd .\LocalTools
+    dotnet tool uninstall dotnetsay
+    ```
+> If you have time left, try installing your custom tool as a local tool.
