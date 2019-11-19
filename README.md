@@ -28,7 +28,7 @@ This workshop provides a great opportunity to understand how .NET Core compares 
 2. [Desktop Applications](./labs/04-new-in-net-core/02-desktop-applications.md)
 3. [Worker Services](./labs/04-new-in-net-core/03-worker-services.md)
 4. [RPC Applications](./labs/04-new-in-net-core/04-rpc-applications.md)
-
+5. [Single File Executables](./labs/04-new-in-net-core/05-single-file-executable.md)
 
 ### **05 -** Porting from .NET Framework
 
