@@ -1,6 +1,6 @@
 # Lab Guide - Worker Services
 
-## Exercise 3 - Create a Worker Service
+## Exercise 1 - Create a Worker Service
 
 ### Steps
 
