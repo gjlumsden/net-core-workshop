@@ -150,3 +150,5 @@
     * Universal Windows Platform 10.0.16299
     * Unity 2018.1
     * And more!
+    
+> Try changing the Target Framework of `DiscountCalculator.Core` to `.NET Standard 2.1` and rebuild the solution. Notice that the .NET Framework CLI project build fails since it does not implement .NET Standard 2.1.
