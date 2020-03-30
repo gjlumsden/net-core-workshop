@@ -8,7 +8,7 @@
 
 1. Create a new ASP.NET Web Application using .NET Framework in Visual Studio.
 
-2. Following the steps of [this tutorial](https://docs.microsoft.com/en-us/aspnet/core/migration/proper-to-2x), see if you can port the application to ASP.NET Core 2.0. The tutorial covers the following steps:
+2. Following the steps of [this tutorial](hthttps://docs.microsoft.com/en-us/aspnet/core/migration/proper-to-2x/?view=aspnetcore-3.1), see if you can port the application to ASP.NET Core 3.1. The tutorial covers the following steps:
 
     * Prerequisites
     * Target Frameworks
@@ -20,7 +20,3 @@
     * Additional Resources
 
     > **Note:** You might not have time to complete the port in the time allotted. The important part is to understand the overall steps involved, not to complete the port.
-
-## Exercise 2 - Port desktop applications to .NET Core 3.0
-
-*Coming soon*

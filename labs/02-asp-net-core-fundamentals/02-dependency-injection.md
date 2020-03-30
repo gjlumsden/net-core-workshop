@@ -1,7 +1,9 @@
-# Lab Guide - Dependency injection 
+# Lab Guide - Dependency injection
 
 ## Exercise 1 - Dependency Injection with .NET Core
+
 In this lab you will:
+
 * Configure service mapping with different lifetimes using .NET Core built-in features
 * Inject service dependencies in a Web API controller
 
@@ -9,20 +11,20 @@ In this lab you will:
 
 1. In Visual Studio, create a new ASP.NET Core Web Application project called "DependencyInjection". Opt to use the API project type.
 
-2. Create a code file with name *OperationInterfaces.cs*
+1. Create a code file with name *OperationInterfaces.cs*
 
-3. Add a base ```IOperation``` interface with an ```OperationId``` property.
+1. Add a base ```IOperation``` interface with an ```OperationId``` property.
 
-    ```c#
+    ```CSharp
     public interface IOperation
     {
         Guid OperationId { get; }
     }
     ```
 
-4. Add two derived interfaces. We will later register them with different lifetimes. 
+1. Add two derived interfaces. We will later register them with different lifetimes.
 
-    ```c#
+    ```CSharp
     public interface IOperationScoped : IOperation
     {
     }
@@ -32,18 +34,18 @@ In this lab you will:
     }
     ```
 
-5. Right-click "Controllers" and select **Add** -> **Controller**. Choose **API Controller - Empty** and click **Add**. Name the controller "ValuesController".
+1. Right-click "Controllers" and select **Add** -> **Controller**. Choose **API Controller - Empty** and click **Add**. Name the controller "ValuesController".
 
-6. Add a field declarations for the two services in the ```ValuesController``` class:
+1. Add a field declarations for the two services in the ```ValuesController``` class:
 
-    ```c#
+    ```CSharp
     private readonly IOperationScoped _scopedOperation;
     private readonly IOperationSingleton _singletonOperation;
     ```
 
-7. Add a constructor that takes these interfaces as parameters:
+1. Add a constructor that takes these interfaces as parameters:
 
-    ```c#
+    ```CSharp
     public ValuesController(IOperationScoped scopedOperation, IOperationSingleton singletonOperation)
     {
         _scopedOperation = scopedOperation;
@@ -51,9 +53,9 @@ In this lab you will:
     }
     ```
 
-8. Create a ```Get()``` action to return the two services so that we can more easily test their ```OperationId``` values.
+1. Create a ```Get()``` action to return the two services so that we can more easily test their ```OperationId``` values.
 
-    ```c#
+    ```CSharp
     [HttpGet]
     public ActionResult<Dictionary<string, IOperation>> Get()
     {
@@ -65,9 +67,9 @@ In this lab you will:
     }
     ```
 
-9. Create a new class with name ```Operation``` as shown here:
+1. Create a new class with name ```Operation``` as shown here:
 
-    ```c#
+    ```CSharp
     public class Operation : IOperationScoped, IOperationSingleton
     {
         public Operation()
@@ -81,13 +83,13 @@ In this lab you will:
 
     > **Note:** This class implements both interfaces: ```IOperationScoped``` and ```IOperationSingleton```.
 
-10. Open *Startup.cs*. In the ```ConfigureServices``` method, add the following service registrations:
+1. Open *Startup.cs*. In the ```ConfigureServices``` method, add the following service registrations:
 
     ```c#
     services.AddScoped<IOperationScoped, Operation>();
     services.AddSingleton<IOperationSingleton, Operation>();
     ```
 
-11. Resolve any references and run the app. And make a request to */api/values*
+1. Resolve any references and run the app. And make a request to */api/values*
 
-12. Refresh the browser to create multiple requests and observe the behaviour of the services with different lifetimes.
+1. Refresh the browser to create multiple requests and observe the behaviour of the services with different lifetimes.

@@ -1,7 +1,9 @@
 # Lab Guide - Middleware
 
 ## Exercise 1 - Middleware
+
 In this exercise, you will:
+
 * Create a custom middleware
 * Use extension methods for built-in Static Files middleware
 
@@ -9,7 +11,7 @@ In this exercise, you will:
 
 1. Create a new ASP.NET Core application called *Middleware*, choose the **empty template**.
 
-3. Open "Startup.cs" and update the ```Configure``` method as below:
+1. Open "Startup.cs" and update the ```Configure``` method as below:
 
     ```c#
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -21,26 +23,26 @@ In this exercise, you will:
     }
     ```
 
-3. Run the application and it should show “Hello World!” in the browser.
+1. Run the application and it should show “Hello World!” in the browser.
 
-4.  In the configure method, add a second ```app.Run``` statement and write out the statement:
+1. In the configure method, add a second ```app.Run``` statement and write out the statement:
 "Hello World, once again!"
 
-5. Run the application. Note that only “Hello World!” is displayed.
+1. Run the application. Note that only “Hello World!” is displayed.
 
     > **Note:** The request delegate written in the first middleware, uses ```app.Run()``` and will terminate the pipeline, regardless of other calls to ```app.Run()``` that you may include. Therefore, only the first delegate (“Hello World!”) will be run and displayed.
     >
     > You must chain multiple request delegates together. Using ```app.Use()```, with a next parameter that represents the next delegate in the pipeline. Note that just because you are calling ```next``` does not mean you cannot perform actions both before and after the next delegate.
 
-5. Change the first ```app.Run()``` statement to be ```app.Use()``` and add a second parameter in the delegate function called ```next```.
+1. Change the first ```app.Run()``` statement to be ```app.Use()``` and add a second parameter in the delegate function called ```next```.
 
-6. At the bottom of the delegate function type the following:
+1. At the bottom of the delegate function type the following:
 
     ```c#
     await next.Invoke();
     ```
 
-7. ```Configure``` should now look like this:
+1. ```Configure``` should now look like this:
 
     ```c#
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -58,7 +60,7 @@ In this exercise, you will:
     }
     ```
 
-7. Run the application again. It should show both text lines in the browser.
+1. Run the application again. It should show both text lines in the browser.
 
 ### Use ```map```
 
@@ -82,7 +84,7 @@ In this exercise, you will:
     }
     ```
 
-2. Update the ```Configure``` method as follows:
+1. Update the ```Configure``` method as follows:
 
     ```c#
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -98,7 +100,7 @@ In this exercise, you will:
     }
     ```
 
-3. Run the application. Make a request to the following paths and observe the responses. If you prefer, place a couple of breakpoints to help you understand the pipeline:
+1. Run the application. Make a request to the following paths and observe the responses. If you prefer, place a couple of breakpoints to help you understand the pipeline:
 
     * "/"
     * "/map1"
@@ -120,7 +122,7 @@ In this exercise, you will:
     }
     ```
 
-2. Update the ```Configure``` method as follows:
+1. Update the ```Configure``` method as follows:
 
     ```c#
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -139,7 +141,7 @@ In this exercise, you will:
     }
     ```
 
-3. Run the application. Make a request to the following paths and observe the responses. If you prefer, place a couple of breakpoints to help you understand the pipeline:
+1. Run the application. Make a request to the following paths and observe the responses. If you prefer, place a couple of breakpoints to help you understand the pipeline:
 
     * "/"
     * "/map1"
@@ -188,7 +190,7 @@ Middleware is generally encapsulated in a class and exposed with an extension me
         * Return a ```Task```.
         * Accept a first parameter of type ```HttpContext```.
 
-2. The above middleware would be implemented as such:
+1. The above middleware would be implemented as such:
 
     ```c#
     public class RequestCultureMiddleware
@@ -218,7 +220,7 @@ Middleware is generally encapsulated in a class and exposed with an extension me
     }
     ```
 
-3. To configure this middleware, we'll create a middleware extension method. Create a new static class called "RequestCultureMiddlewareExtensions":
+1. To configure this middleware, we'll create a middleware extension method. Create a new static class called "RequestCultureMiddlewareExtensions":
 
     ```c#
     public static class RequestCultureMiddlewareExtensions
@@ -231,13 +233,13 @@ Middleware is generally encapsulated in a class and exposed with an extension me
     }
     ```
 
-4. In "Startup.cs" update the ```Configure``` method with the following:
+1. In "Startup.cs" update the ```Configure``` method with the following:
 
     ```c#
     app.UseRequestCulture();
     ```
 
-5. The original middleware example should now look like this:
+1. The original middleware example should now look like this:
 
     ```c#
     public class Startup
@@ -265,25 +267,25 @@ Middleware is generally encapsulated in a class and exposed with an extension me
 
     > **Important:** The order in which you arrange setup middleware in your application’s ```Configure``` method is very important. Be sure you have a good understanding of how your application’s request pipeline will behave in various scenarios.
 
-3. Running the application now should show a Welcome page.
+1. Running the application now should show a Welcome page.
 
-4. In Visual Studio, right-click the ASP.NET project, and select **Add > New Folder**. Give the folder the following name: "wwwroot".
+1. In Visual Studio, right-click the ASP.NET project, and select **Add > New Folder**. Give the folder the following name: "wwwroot".
 
-4. Add some static files from to *wwwroot* folder. You can do this by right-clicking *wwwroot* and then selecting **Add > Existing Item**.
+1. Add some static files from to *wwwroot* folder. You can do this by right-clicking *wwwroot* and then selecting **Add > Existing Item**.
 
     > For example, include some image, *\*.css* and *\*.js* files.
 
-5. Add the following line at the start of the ```Configure()``` method:
+1. Add the following line at the start of the ```Configure()``` method:
 
     ```c#
     app.UseStaticFiles();
     ```
 
-7. Run the application and navigate to the path of one the images. For example "/images/logo.png".
+1. Run the application and navigate to the path of one the images. For example "/images/logo.png".
 
     > ```app.UseStaticFiles()``` has enabled access of all static files in wwwroot folder.
 
-8. Replace the existing ```UseStaticFiles()``` middleware component with the following:
+1. Replace the existing ```UseStaticFiles()``` middleware component with the following:
 
     ```c#
     app.UseStaticFiles(new StaticFileOptions
@@ -292,43 +294,46 @@ Middleware is generally encapsulated in a class and exposed with an extension me
         RequestPath = new PathString("/static")
     });
     ```
-9. Resolve any namespace ```using``` statements as required.
 
-10. Run the application. Your static content will now be served using "http://localhost:[port]/static/...".
+1. Resolve any namespace ```using``` statements as required.
+
+1. Run the application. Your static content will now be served using "<http://localhost:[port]/static/...>"
 
 ## Exercise 2 - Working Environments
+
 In this exercise, you will:
+
 * Configure different pipelines for development and production working environments.
 
 ### Steps
 
-1. You can continue using the project you created in the previous exercise. 
+1. You can continue using the project you created in the previous exercise.
 
-2. Create another ```Configure()``` method in the ```Startup``` class, and name it ```ConfigureDevelopment```.
+1. Create another ```Configure()``` method in the ```Startup``` class, and name it ```ConfigureDevelopment```.
 
     ```c#
     public void ConfigureDevelopment(IApplicationBuilder app)
-	{
+    {
 
-	}
+    }
     ```
 
-3. Add the following middleware to ```ConfigureDevelopment()``` method:
+1. Add the following middleware to ```ConfigureDevelopment()``` method:
 
     ```c#
     app.UseStaticFiles();
     app.UseWelcomePage();
     ```
 
-4. Remove the welcome-page and static files middleware from the ```Configure()``` method.
+1. Remove the welcome-page and static files middleware from the ```Configure()``` method.
 
-5. Modify ```Configure()```'s final middleware to return “Hello World, from Production!”.
+1. Modify ```Configure()```'s final middleware to return “Hello World, from Production!”.
 
-6. Run the application and observe the results.
+1. Run the application and observe the results.
 
-7. Go to **project properties** (right-click the project and select **properties**) and select the **Debug** tab. Set the *ASPNETCORE_ENVIRONMENT* variable value to "Production".
+1. Go to **project properties** (right-click the project and select **properties**) and select the **Debug** tab. Set the *ASPNETCORE_ENVIRONMENT* variable value to "Production".
 
-7. Run the application again, and note the change in application behaviour as you change environment.
+1. Run the application again, and note the change in application behaviour as you change environment.
 
 ---
-TODO: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-3.0
+TODO: <https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-3.0>

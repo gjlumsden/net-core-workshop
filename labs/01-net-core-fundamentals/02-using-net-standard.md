@@ -1,8 +1,9 @@
 # Lab Guide - Using .NET Standard
 
 ## Prerequisites
+
 * **Operating System:** Windows
-* **Software:** Visual Studio 2017 or 2019.
+* **Software:** Visual Studio 2017 or 2019
 
 ## Exercise 1 - Reference .NET Standard from .NET Core
 
@@ -18,20 +19,20 @@
 
     dotnet new classlib --name DiscountCalculator.Core
     dotnet sln add .\DiscountCalculator.Core\
-    
+
     dotnet new api --name DiscountCalculator.API
     dotnet sln add .\DiscountCalculator.API\
     ```
 
-2. Add a project reference too:
+1. Add a project reference too:
 
     ```bash
     dotnet add DiscountCalculator.API reference .\DiscountCalculator.Core\
     ```
 
-3. Open the solution (.sln) file in Visual Studio. For each project, open it's project file. Note that they are targeting "netcoreapp3.0" and "netstandard2.0" respectively.
+1. Open the solution (.sln) file in Visual Studio. For each project, open it's project file. Note that they are targeting `netcoreapp3.0` or `netcoreapp3.1` and `netstandard2.0` respectively.
 
-4. Let's add some code. In *DiscountCalculator.Core* replace *Class1.cs** with "DiscountEngine.cs"
+1. Let's add some code. In *DiscountCalculator.Core* replace *Class1.cs** with "DiscountEngine.cs"
 
     ```c#
     using System;
@@ -64,7 +65,7 @@
     }
     ```
 
-5. In *DiscountCalculator.API* delete "WeatherForecast.cs" and replace *WeatherForecastController.cs** with "DiscountsController.cs"
+1. In *DiscountCalculator.API* delete "WeatherForecast.cs" and replace *WeatherForecastController.cs** with "DiscountsController.cs"
 
     ```c#
     using System;
@@ -90,7 +91,7 @@
 
     > **Note:** In the next module, we'll explore how to improve this with *depenedency injection*.
 
-6. Run your web application from Visual Studio. Navigate to "https://localhost:5001/api/discounts?dateJoined=2017-05-01" and the service will return the calculated discount.
+1. Run your web application from Visual Studio. Navigate to "<https://localhost:5001/api/discounts?dateJoined=2017-05-01"> and the service will return the calculated discount.
 
 ## Exercise 2 - Reference .NET Standard from .NET Framework
 
@@ -100,9 +101,9 @@
 
     > **Note:** For the purpose of this exercise ensure you select .NET Framework and C#.
 
-2. Right click the new project and select **Add -> Reference**. Select the project "DiscountCalculator.Core".
+1. Right click the new project and select **Add -> Reference**. Select the project "DiscountCalculator.Core".
 
-3. Update *Program.cs* with:
+1. Update *Program.cs* with:
 
     ```c#
     using DiscountCalculator.Core;
@@ -137,9 +138,9 @@
     }
     ```
 
-4. Run the newly created console application from Visual Studio.
+1. Run the newly created console application from Visual Studio.
 
-5. You now have a .NET Standard library, that is being referenced by a **ASP.NET Core** Web API project and a **.NET Framework** Console app. "DiscountCalculator.Core" can be used anywhere that implements "netstandard2.0":
+1. You now have a .NET Standard library, that is being referenced by a **ASP.NET Core** Web API project and a **.NET Framework** Console app. "DiscountCalculator.Core" can be used anywhere that implements "netstandard2.0":
 
     * .NET Core 2.0+
     * .NET Framework 4.6.1
@@ -150,5 +151,5 @@
     * Universal Windows Platform 10.0.16299
     * Unity 2018.1
     * And more!
-    
+
 > Try changing the Target Framework of `DiscountCalculator.Core` to `.NET Standard 2.1` and rebuild the solution. Notice that the .NET Framework CLI project build fails since it does not implement .NET Standard 2.1.

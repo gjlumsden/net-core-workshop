@@ -12,11 +12,11 @@
     cd .\MultiTargetLib\
     ```
 
-2. Open the project in Visual Studio or VS Code. Take a look at the project file (*\*.csproj*).
+1. Open the project in Visual Studio or VS Code. Take a look at the project file (*\*.csproj*).
 
     > **Note:** The ```TargetFramework``` is "netstandard2.0".
 
-3. We want to update the project file to target "netstandard2.0", ".NET Framework 4.0" and ".NET Framework 4.5". Update the *\*csproj* to look like this:
+1. We want to update the project file to target "netstandard2.0", ".NET Framework 4.0" and ".NET Framework 4.5". Update the *\*csproj* to look like this:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -37,13 +37,13 @@
     </Project>
     ```
 
-4. Let's take a look at three key changes here:
+1. Let's take a look at three key changes here:
 
     * The ```TargetFramework``` has been replaced by ```TargetFrameworks```, and three TFMs are expressed inside.
     * There is an ```<ItemGroup>``` node for the ```net40``` target pulling in one .NET Framework reference.
     * There is an ```<ItemGroup>``` node for the ```net45``` target pulling in two .NET Framework references.
 
-5. Using conditional compilation we can write code specifically for each target. As an example, update "Class1.cs" to look like this:
+1. Using conditional compilation we can write code specifically for each target. As an example, update "Class1.cs" to look like this:
 
     ```c#
     using System;
@@ -106,13 +106,13 @@
     }
     ```
 
-5. Return to your console and build the project:
+1. Return to your console and build the project:
 
     ```bash
     dotnet build
     ```
 
-6. Navigate to the "bin" directory. You'll find three directories, one for each framework: "netstandard2.0", "net40" and "net45". Each of these contain their own respective ```.dll``` files.
+1. Navigate to the "bin" directory. You'll find three directories, one for each framework: "netstandard2.0", "net40" and "net45". Each of these contain their own respective ```.dll``` files.
 
 ## Exercise 2 - Using Windows Compatibility Pack
 
@@ -124,22 +124,22 @@
     cd C:\Dev\dotnet-workshop\
     ```
 
-2. Create a new console application.
+1. Create a new console application.
 
     ```bash
     dotnet new console --name WindowsCompatConsoleApp
     cd .\WindowsCompatConsoleApp\
     ```
 
-3. Add a NuGet package reference to the project for "Microsoft.Windows.Compatibility".
+1. Add a NuGet package reference to the project for "Microsoft.Windows.Compatibility".
 
     ```bash
      dotnet add package Microsoft.Windows.Compatibility
     ```
 
-4. Open the project in Visual Studio or VS Code.
+1. Open the project in Visual Studio or VS Code.
 
-5. Update *Program.cs* as follows:
+1. Update *Program.cs* as follows:
 
     ```c#
     using System;
@@ -178,4 +178,4 @@
     }
     ```
 
-6. Run the application. On Windows the application will use the Registry value (if it exists). On any other platform, it will use the *LocalApplicationData* directory.
+1. Run the application. On Windows the application will use the Registry value (if it exists). On any other platform, it will use the *LocalApplicationData* directory.

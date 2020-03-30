@@ -11,6 +11,7 @@ In this lab, we will look at single file executables and reducing the output siz
     ```bash
     cd C:\Dev\dotnet-workshop\
     ```
+
 1. Create a new Console application
 
     ```bash
@@ -25,14 +26,14 @@ In this lab, we will look at single file executables and reducing the output siz
 
       <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
         <RuntimeIdentifier>win-x64</RuntimeIdentifier>
         <PublishSingleFile>true</PublishSingleFile>
       </PropertyGroup>
 
     </Project>
     ```
- 
+
 1. Return to the command line and publish the application:
 
     ```bash
@@ -42,11 +43,12 @@ In this lab, we will look at single file executables and reducing the output siz
 1. Navigate to the publish directory and examine the output:
   
     ```bash
-    cd bin\release\netcoreapp3.0\publish
+    cd bin\release\netcoreapp3.1\publish
     ls
     ```
+
 1. Run the executable:
-    
+
     ```bash
     .\SingleFileExecutable.exe
     ```
@@ -71,7 +73,7 @@ In this lab, we will look at single file executables and reducing the output siz
     </Project>
 
     ```
-    
+
 1. In your console, return to the root of the project directory and publish the project again:
 
     ```bash
