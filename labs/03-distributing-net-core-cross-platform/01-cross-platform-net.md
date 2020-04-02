@@ -179,3 +179,5 @@
     ```
 
 1. Run the application. On Windows the application will use the Registry value (if it exists). On any other platform, it will use the *LocalApplicationData* directory.
+
+> If you have Windows Subsystem for Linux installed, try running the application in Linux to see the different result.
